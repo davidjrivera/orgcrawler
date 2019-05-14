@@ -2,18 +2,42 @@ import boto3
 import re
 
 
-def status_config_svcs(region, account ):    # pragma: no cover 
+def cf_list_stack_sets(region, account ):
+    client = boto3.client('cloudformation', region_name=region, **account.credentials)
+    response = client.list_stack_sets()
+    response.pop('ResponseMetadata')
+    return response
+
+def configuration_recorder_status(region, account ):    # pragma: no cover 
    client = boto3.client('config', region_name=region, **account.credentials)
    response = client.describe_configuration_recorder_status()
+   #recording_value =  response['ConfigurationRecordersStatus'][0]['recording']
+   #recorder_status = 'recording ' + str(recording_value)
+   #response.pop(['ResponseMetadata'][0])
    response.pop('ResponseMetadata')
-   if response['ConfigurationRecordersStatus']:
-       state = dict(recording=True)
-   else:
-       state = dict(recording=False)
-   return dict(ConfigurationRecordersStatus=state)
+   return response
 
 
-def set_account_alias(region, account, alias=None):
+def configuration_recorders(region, account ):    # pragma: no cover
+   client = boto3.client('config', region_name=region, **account.credentials)
+   response = client.describe_configuration_recorders()
+   response.pop('ResponseMetadata')
+   return response
+
+
+def configuration_delivery_channel(region, account ):    # pragma: no cover
+   client = boto3.client('config', region_name=region, **account.credentials)
+   response = client.describe_delivery_channels()
+   response.pop('ResponseMetadata')
+   return response
+
+def configuration_delivery_channel_status(region, account ):    # pragma: no cover
+   client = boto3.client('config', region_name=region, **account.credentials)
+   response = client.describe_delivery_channel_status()
+   response.pop('ResponseMetadata')
+   return response
+
+def  set_account_alias(region, account, alias=None):
     client = boto3.client('iam', region_name=region, **account.credentials)
     if alias is None:
         alias = account.name

@@ -1,0 +1,7 @@
+{'ConfigurationRecordersStatus': [{'name': 'StackSet-config-seg-conf-us-east-2-8ab10e0f-f28c-4fe1-951f-e00ccdde9913-ConfigRecorder-19TX61A9ELYWE', 'lastStartTime': datetime.datetime(2019, 5, 13, 11, 52, 58, 739000, tzinfo=tzlocal()), 'recording': True, 'lastStatus': 'SUCCESS', 'lastStatusChangeTime': datetime.datetime(2019, 5, 14, 9, 53, 10, 488000, tzinfo=tzlocal())}], 'ResponseMetadata': {'RequestId': 'dccc547d-766a-11e9-a877-330204badb3b', 'HTTPStatusCode': 200, 'HTTPHeaders': {'x-amzn-requestid': 'dccc547d-766a-11e9-a877-330204badb3b', 'strict-transport-security': 'max-age=86400', 'content-type': 'application/x-amz-json-1.1', 'content-length': '259', 'date': 'Tue, 14 May 2019 17:08:14 GMT'}, 'RetryAttempts': 0}}
+
+
+
+
+
+[]
